@@ -120,7 +120,7 @@ int main(void)
                 exit(EXIT_FAILURE);
         }
 
-                              /* Ensure both threads are allowed to complete */
+        /* Ensure both threads are allowed to complete */
         pthread_join(thread1, NULL);
         pthread_join(thread2, NULL);
 

@@ -14,6 +14,7 @@
  */
 
 /* Build with gcc cfs.c -o cfs */
+/* GitHub Codespace:  gcc cfs.c -lpthread -o cfs */
 
 #define _GNU_SOURCE
 
@@ -95,7 +96,7 @@ int main(void)
                 exit(EXIT_FAILURE);
         }
 
-                              /* Ensure both threads are allowed to complete */
+        /* Ensure both threads are allowed to complete */
         pthread_join(thread1, NULL);
         pthread_join(thread2, NULL);
 

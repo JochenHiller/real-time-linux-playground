@@ -17,16 +17,12 @@ Ubuntu 24.04 LTS has been installed on an Parallels (20.3.1) VM (2 cores, 4 GB R
 * Install Parallel Tools Installation Agent
 * Update all software packages
 
-Note: I am aware that reliable tests should be done on bare metal, this VM was just used for simple development.
+Note: I am aware that reliable stress and latency tests of Real-time capabilities should be done on bare metal, this VM was just used for simple development.
 
 ```bash
 # check kernel version
 # expected: 6.8.0-40-generic, 6.8.0-60-generic
 uname -r
-
-# TODO
-# update all packages
-# sudo apt-get update -y && sudo apt-get upgrade -y
 
 # make sure latest Ubunto Pro client is installed
 sudo apt update && sudo apt install ubuntu-advantage-tools
@@ -35,10 +31,26 @@ sudo pro attach <free-personal-token>
 pro status
 # enable real time
 sudo pro enable realtime-kernel
+One moment, checking your subscription first
+No variant specified. To specify a variant, use the variant option.
+Auto-selecting generic variant. Proceed? (y/N) y
+The Real-time kernel is an Ubuntu kernel with PREEMPT_RT patches integrated.
+
+This will change your kernel. To revert to your original kernel, you will need
+to make the change manually.
+
+Do you want to continue? [ default = Yes ]: (Y/n) y
+Configuring APT access to Real-time kernel
+Updating Real-time kernel package lists
+Updating standard Ubuntu package lists
+Installing Real-time kernel packages
+Real-time kernel enabled
+A reboot is required to complete install.
+
 # a reboot is necessary
 reboot
 
-# check if Real-time kernel is installed, should be
+# check if Real-time kernel is installed
 # expected: 6.8.1-1022-realtime
 uname -r
 ```
@@ -62,8 +74,16 @@ sudo apt update && sudo apt install ubuntu-advantage-tools
 # attach your installation to your subscription
 sudo pro attach <free-personal-token>
 pro status
+
 # enable real time
+# This seems to fail, even checking realtime feature does show "disabled"
+# But after reboot it seems that realtime kernel has been installed
+# TODO create a bug for Canonical
 sudo pro enable realtime-kernel
+One moment, checking your subscription first
+Real-time kernel is not available for Ubuntu 25.04 (Plucky Puffin).
+Could not enable Real-time kernel.
+
 # a reboot is necessary
 reboot
 
@@ -74,7 +94,13 @@ uname -r
 
 ## Testing
 
-TODO
+Follow Ubuntu tutorial here: <https://documentation.ubuntu.com/real-time/en/latest/tutorial/first-rt-app/>.
+
+Notes:
+* All Ubuntu samples run as expected also in VM
+* Samples require to be run as root using sudo as `sched_setscheduler` needs root privilegdes. Otherwise you will be in strace a failed call: `sched_setscheduler(20759, SCHED_FIFO, [89]) = -1 EPERM (Operation not permitted)`  
+
+TODO stress testing
 
 # Ubuntu Core 
 
