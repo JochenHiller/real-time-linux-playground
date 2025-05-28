@@ -1,0 +1,14 @@
+{
+  "name": "My Ubuntu 24.04 Dev Container",
+  "image": "ubuntu:24.04",
+  // Or use other tags like "ubuntu:plucky"
+  "forwardPorts": [],
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        // Add your preferred extensions here
+      ]
+    }
+  }
+  // Add other configurations as needed
+}
