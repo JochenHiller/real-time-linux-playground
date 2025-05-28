@@ -1,6 +1,9 @@
 CXX=gcc
-CXXFLAGS=-Wall -Wextra -fsanitize=thread
-CXX_LINK_FLAGS=-lpthread -fsanitize=thread
+# CXX=clang
+# TODO check with gcc13, gcc14, clang
+# TODO check with -fsanitize=thread, use -g -O1
+CXXFLAGS=-Wall -Wextra
+CXX_LINK_FLAGS=-lpthread
 
 all:
 	$(CXX) ${CXXFLAGS} cfs.c -o cfs   ${CXX_LINK_FLAGS} 

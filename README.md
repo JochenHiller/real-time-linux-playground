@@ -24,7 +24,7 @@ Note: I am aware that reliable stress and latency tests of Real-time capabilitie
 # expected: 6.8.0-40-generic, 6.8.0-60-generic
 uname -r
 
-# make sure latest Ubunto Pro client is installed
+# make sure latest Ubuntu Pro client is installed
 sudo apt update && sudo apt install ubuntu-advantage-tools
 # attach your installation to your subscription
 sudo pro attach <free-personal-token>
@@ -70,7 +70,7 @@ sudo add-apt-repository universe
 sudo apt update
 sudo apt install ubuntu-realtime
 
-# make sure latest Ubunto Pro client is installed
+# make sure latest Ubuntu Pro client is installed
 sudo apt update && sudo apt install ubuntu-advantage-tools
 # attach your installation to your subscription
 sudo pro attach <free-personal-token>
@@ -99,7 +99,7 @@ Follow Ubuntu tutorial here: <https://documentation.ubuntu.com/real-time/en/late
 
 Notes:
 * All Ubuntu samples run as expected also in VM
-* Samples require to be run as root using sudo as `sched_setscheduler` needs root privilegdes. Otherwise you will see in strace a failed call: `sched_setscheduler(20759, SCHED_FIFO, [89]) = -1 EPERM (Operation not permitted)`
+* Samples require to be run as root using sudo as `sched_setscheduler` needs root privileges. Otherwise you will see in strace a failed call: `sched_setscheduler(20759, SCHED_FIFO, [89]) = -1 EPERM (Operation not permitted)`
 
 TODO stress testing
 
