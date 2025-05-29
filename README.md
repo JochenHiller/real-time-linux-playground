@@ -79,7 +79,7 @@ pro status
 # enable real time
 # This seems to fail, even checking realtime feature does show "disabled"
 # But after reboot it seems that realtime kernel has been installed
-# Create bug for Canonical: https://github.com/canonical/ubuntu-pro-client/issues/3447
+# Created bug for Canonical: https://github.com/canonical/ubuntu-pro-client/issues/3447
 sudo pro enable realtime-kernel
 One moment, checking your subscription first
 Real-time kernel is not available for Ubuntu 25.04 (Plucky Puffin).
@@ -103,7 +103,7 @@ Notes:
 * Thread sanitizer did not work reliably even with latest compilers (gcc13, clang TODO version here).
   * For more details see https://stackoverflow.com/questions/77850769/fatal-threadsanitizer-unexpected-memory-mapping-when-running-on-linux-kernels
   * A call with `sudo sysctl vm.mmap_rnd_bits=28` can enable that temporarily on Linux, but is not persisted by default.
-  * TODO test that on 25.04 please, with clang as well
+  * TODO test that on 25.04, with clang as well
 
 TODO stress testing
 
