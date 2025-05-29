@@ -1,4 +1,4 @@
 {
-  "name": "My Ubuntu Latest Dev Container",
-  "image": "mcr.microsoft.com/devcontainers/base:ubuntu"
+  "name": "Ubuntu 24.04 Dev Container",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04"
 }
