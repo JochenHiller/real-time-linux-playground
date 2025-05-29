@@ -19,11 +19,11 @@
 #define _GNU_SOURCE
 
 #include <pthread.h>
+#include <errno.h>
 #include <unistd.h>
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include <errno.h>
 
 #define FIRST_CORE 0
 

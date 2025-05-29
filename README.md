@@ -100,7 +100,7 @@ Follow Ubuntu tutorial here: <https://documentation.ubuntu.com/real-time/en/late
 Notes:
 * All Ubuntu samples run as expected also in VM
 * Samples require to be run as root using sudo as `sched_setscheduler` needs root privileges. Otherwise you will see in strace a failed call: `sched_setscheduler(20759, SCHED_FIFO, [89]) = -1 EPERM (Operation not permitted)`
-* Thread sanitizer did not work even with latest compilers (gcc13, clangTODO).
+* Thread sanitizer did not work reliable even with latest compilers (gcc13, clang TODO version here).
   * For more details see https://stackoverflow.com/questions/77850769/fatal-threadsanitizer-unexpected-memory-mapping-when-running-on-linux-kernels
   * A call with `sudo sysctl vm.mmap_rnd_bits=28` can enable that temporarily on Linux, but is not persisted by default.
   * TODO test that on 25.04 please, with clang as well
