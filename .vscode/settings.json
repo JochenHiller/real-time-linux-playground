@@ -1,5 +1,10 @@
 {
     "files.associations": {
         "pthread.h": "c"
-    }
+    },
+    "cSpell.words": [
+        "EPERM",
+        "sched",
+        "setscheduler"
+    ]
 }
