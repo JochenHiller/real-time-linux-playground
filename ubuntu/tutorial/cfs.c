@@ -42,7 +42,7 @@ void *thread_start(void *arg)
                                 // added check for return code in case of any errors
                                 int ret = nice(19);
                                 if (ret == -1) {
-                                        printf("Failed to set nice value to 19: errno=%d\n", errno);
+                                        fprintf(stderr, "Failed to set nice value to 19: %s (errno=%d)\n", strerror(errno), errno);
                                         exit(EXIT_FAILURE);
                                 }
                                 make_thread1_nicer = false;
