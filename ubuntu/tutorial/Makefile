@@ -2,7 +2,7 @@ CXX=gcc
 # CXX=clang
 # TODO check with gcc13, gcc14, clang
 # TODO check with -fsanitize=thread, use -g -O1
-CXXFLAGS=-Wall -Wextra
+CXXFLAGS=-Wall -Wextra -Wpedantic -Werror -Wformat -Wformat=2 -fexceptions -O2
 CXX_LINK_FLAGS=-lpthread
 
 all:

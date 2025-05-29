@@ -23,6 +23,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
 
 #define FIRST_CORE 0
 
@@ -38,7 +39,12 @@ void *thread_start(void *arg)
         do {
                 if (1 == thread_num) {
                         if (make_thread1_nicer) {
-                                nice(19);
+                                // added check for return code in case of any errors
+                                int ret = nice(19);
+                                if (ret == -1) {
+                                        printf("Failed to set nice value to 19: errno=%d\n", errno);
+                                        exit(EXIT_FAILURE);
+                                }
                                 make_thread1_nicer = false;
                         }
 
