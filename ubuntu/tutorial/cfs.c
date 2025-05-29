@@ -39,9 +39,10 @@ void *thread_start(void *arg)
         do {
                 if (1 == thread_num) {
                         if (make_thread1_nicer) {
-                                // added check for return code in case of any errors
+                                // Reset errno before calling nice()
+                                errno = 0;
                                 int ret = nice(19);
-                                if (ret == -1) {
+                                if (ret == -1 && errno != 0) {
                                         fprintf(stderr, "Failed to set nice value to 19: %s (errno=%d)\n", strerror(errno), errno);
                                         exit(EXIT_FAILURE);
                                 }
